@@ -64,6 +64,7 @@
 #include "SocketCANAnalyzer.h"
 
 #include "RohdeSchwarzHMC8012Multimeter.h"
+#include "OwonHDS200.h"
 
 #include "RigolFunctionGenerator.h"
 
@@ -234,17 +235,20 @@ void DriverStaticInit()
 	AddDriverClass(TektronixOscilloscope);
 	AddDriverClass(TektronixHSIOscilloscope);
 	AddDriverClass(ThunderScopeOscilloscope);
+	AddDriverClass(OwonHDS200);
 #ifdef __linux
 	AddDriverClass(SocketCANAnalyzer);
 #endif
 
 	AddFunctionGeneratorDriverClass(RigolFunctionGenerator);
+//	AddFunctionGeneratorDriverClass(OwonHDS200);
 
 	AddLoadDriverClass(SiglentLoad);
 
 	AddMiscInstrumentDriverClass(CSVStreamInstrument);
 
 	AddMultimeterDriverClass(RohdeSchwarzHMC8012Multimeter);
+//	AddMultimeterDriverClass(OwonHDS200);
 
 	AddPowerSupplyDriverClass(DemoPowerSupply);
 	AddPowerSupplyDriverClass(GWInstekGPDX303SPowerSupply);

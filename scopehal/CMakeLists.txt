@@ -184,6 +184,7 @@ set(SCOPEHAL_SOURCES
 	RohdeSchwarzOscilloscope.cpp
 	RSRTO6Oscilloscope.cpp
 	RohdeSchwarzHMC8012Multimeter.cpp
+	OwonHDS200.cpp
 	RohdeSchwarzHMC804xPowerSupply.cpp
 
 	StandardColors.cpp
