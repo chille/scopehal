@@ -733,6 +733,14 @@ void InitializeSearchPaths()
 	//TODO: add system directories for Windows (%appdata% etc)?
 	//The current strategy of searching the binary directory should work fine in the common case
 	//of installing binaries and data files all in one directory under Program Files.
+
+
+	printf("binRootDir: %s\n", binRootDir.c_str());
+
+//	g_searchPaths.push_back(binRootDir + "/../share/ngscopeclient");
+	g_searchPaths.push_back(binRootDir + "/../local/share/ngscopeclient");
+//	g_searchPaths.push_back(binRootDir + "/usr/local/share/ngscopeclient");
+
 }
 
 /**

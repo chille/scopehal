@@ -61,6 +61,7 @@ SCPIDevice::SCPIDevice(SCPITransport* transport, bool identify)
 			m_fwVersion = version;
 
 			succeeded = true;
+sleep(1);
 			m_transport->FlushRXBuffer(); // In case our *IDNs got queued behind each other (Tek...)
 			break; // success
 		}

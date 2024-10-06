@@ -292,6 +292,22 @@ void* SCPITransport::SendCommandImmediateWithRawBlockReply(string cmd, size_t& l
 	SendCommand(cmd);
 
 	//Read the length
+	char tmplen[4] = {0};
+	if(4 != ReadRawData(4, (unsigned char*)tmplen))
+		return NULL;
+
+	uint32_t *len2 = (uint32_t*)tmplen;
+	len = *len2;
+
+	//Read the actual data, and null terminate it
+	unsigned char* buf = new unsigned char[len+1];
+	len = ReadRawData(len, buf);
+	buf[len] = 0;
+
+	return buf;
+
+/*
+	//Read the length
 	char tmplen[3] = {0};
 	if(2 != ReadRawData(2, (unsigned char*)tmplen))			//expect #n
 		return NULL;
@@ -309,6 +325,7 @@ void* SCPITransport::SendCommandImmediateWithRawBlockReply(string cmd, size_t& l
 	unsigned char* buf = new unsigned char[len];
 	len = ReadRawData(len, buf);
 	return buf;
+*/
 }
 
 void SCPITransport::FlushRXBuffer(void)
